@@ -15,11 +15,6 @@ Console-based shop system with cart, promo code, checkout and JSON saving.
 - Shop.cpp
 - main.cpp
 
-## ▶️ Run
-1. Open in Visual Studio
-2. Build project
-3. Run program
-
 ## 📋 Menu
 1. Add product  
 2. Remove product  
