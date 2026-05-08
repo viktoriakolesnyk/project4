@@ -1,26 +1,22 @@
 ﻿#include "Shop.h"
 #include <fstream>
 
-// ===== Product =====
 Product::Product(string n, double p, int q) {
     name = n;
     price = p;
     quantity = q;
 }
 
-// ===== Order =====
 Order::Order() {
     isPaid = false;
     status = "collecting";
 }
 
-// ===== Shop =====
 Shop::Shop() {
     discount = 0.0;
     promo = "";
 }
 
-// ADD PRODUCT
 void Shop::addProduct() {
     string name;
     double price;
@@ -42,7 +38,6 @@ void Shop::addProduct() {
     cout << "Product added!\n";
 }
 
-// REMOVE PRODUCT
 void Shop::removeProduct() {
     if (order.products.empty()) {
         cout << "Cart is empty!\n";
@@ -63,7 +58,6 @@ void Shop::removeProduct() {
     cout << "Product removed!\n";
 }
 
-// SHOW ORDER
 void Shop::showOrder() {
     if (order.products.empty()) {
         cout << "Order is empty!\n";
@@ -93,7 +87,7 @@ void Shop::showOrder() {
     }
 }
 
-// PROMO CODE
+// promo code
 void Shop::applyPromo(const string& code) {
     if (code == "SALE10") {
         discount = 0.10;
@@ -105,7 +99,6 @@ void Shop::applyPromo(const string& code) {
     }
 }
 
-// TOTAL WITHOUT DISCOUNT
 double Shop::calculateTotalWithoutDiscount() const {
     double total = 0.0;
 
@@ -116,12 +109,10 @@ double Shop::calculateTotalWithoutDiscount() const {
     return total;
 }
 
-// TOTAL WITH DISCOUNT
 double Shop::calculateTotal() const {
     return calculateTotalWithoutDiscount() * (1 - discount);
 }
 
-// CHECKOUT
 void Shop::checkout() {
     if (order.products.empty()) {
         cout << "No products in order!\n";
@@ -149,7 +140,6 @@ void Shop::checkout() {
     cout << "Payment: " << (order.isPaid ? "paid" : "not paid") << "\n";
 }
 
-// CHANGE STATUS
 void Shop::changeStatus() {
     if (order.status == "collecting")
         order.status = "ready";
@@ -166,7 +156,7 @@ void Shop::saveToJSON() const {
         return;
     }
 
-    ofstream file("order.json"); // 🔥 один файл завжди
+    ofstream file("order.json"); 
 
     file << "{\n";
     file << "  \"status\": \"" << order.status << "\",\n";
@@ -193,5 +183,5 @@ void Shop::saveToJSON() const {
 
     file.close();
 
-    cout << "Saved to order.json ✅\n";
+    cout << "Saved to order.json \n";
 }
