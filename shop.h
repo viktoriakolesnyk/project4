@@ -5,7 +5,6 @@
 
 using namespace std;
 
-// ===== Товар =====
 class Product {
 public:
     string name;
@@ -15,7 +14,6 @@ public:
     Product(string n, double p, int q);
 };
 
-// ===== Замовлення =====
 class Order {
 public:
     vector<Product> products;
@@ -25,7 +23,6 @@ public:
     Order();
 };
 
-// ===== Магазин =====
 class Shop {
 private:
     Order order;
