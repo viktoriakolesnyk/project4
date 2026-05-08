@@ -149,7 +149,6 @@ void Shop::changeStatus() {
     cout << "Status: " << order.status << "\n";
 }
 
-// SAVE JSON (ONE FILE)
 void Shop::saveToJSON() const {
     if (order.products.empty()) {
         cout << "Nothing to save!\n";
